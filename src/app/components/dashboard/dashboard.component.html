@@ -1,0 +1,16 @@
+<section class="dashboard">
+  <h2 class="dashboard__title">Pokémon Destacados</h2>
+
+  @if (loading) {
+    <p class="dashboard__loading">Cargando...</p>
+  } @else {
+    <div class="dashboard__grid">
+      @for (pokemon of pokemons; track pokemon.id) {
+        <div class="pokemon-card" (click)="goToDetail(pokemon.id)">
+          <img class="pokemon-card__img" [src]="getSprite(pokemon)" [alt]="pokemon.name" />
+          <p class="pokemon-card__name">{{ pokemon.name }}</p>
+        </div>
+      }
+    </div>
+  }
+</section>

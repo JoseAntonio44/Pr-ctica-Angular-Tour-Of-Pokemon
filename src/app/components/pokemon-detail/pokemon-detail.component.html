@@ -1,0 +1,37 @@
+<section class="pokemon-detail">
+  @if (loading) {
+    <p class="pokemon-detail__loading">Cargando...</p>
+  } @else if (pokemon) {
+    <button class="pokemon-detail__back" (click)="goBack()">← Volver</button>
+
+    <div class="pokemon-detail__card">
+      <img class="pokemon-detail__img" [src]="getSprite()" [alt]="pokemon.name" />
+      <div class="pokemon-detail__info">
+        <h2 class="pokemon-detail__name">{{ pokemon.name }}</h2>
+        <p><strong>ID:</strong> #{{ pokemon.id }}</p>
+        <p><strong>Altura:</strong> {{ pokemon.height / 10 }} m</p>
+        <p><strong>Peso:</strong> {{ pokemon.weight / 10 }} kg</p>
+        <div class="pokemon-detail__types">
+          @for (t of pokemon.types; track t.slot) {
+            <span class="type-badge">{{ t.type.name }}</span>
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="pokemon-detail__stats">
+      <h3>Estadísticas base</h3>
+      @for (stat of pokemon.stats; track stat.stat.name) {
+        <div class="stat">
+          <span class="stat__name">{{ stat.stat.name }}</span>
+          <div class="stat__bar">
+            <div class="stat__fill" [style.width.%]="(stat.base_stat / 255) * 100"></div>
+          </div>
+          <span class="stat__value">{{ stat.base_stat }}</span>
+        </div>
+      }
+    </div>
+  } @else {
+    <p>Pokémon no encontrado.</p>
+  }
+</section>

@@ -1,0 +1,22 @@
+<section class="pokemon-list">
+  <h2 class="pokemon-list__title">Listado de Pokémon</h2>
+
+  @if (loading) {
+    <p class="pokemon-list__loading">Cargando...</p>
+  } @else {
+    <ul class="pokemon-list__items">
+      @for (pokemon of pokemons; track pokemon.url) {
+        <li class="pokemon-list__item" (click)="goToDetail(pokemon.url)">
+          <span class="pokemon-list__id">#{{ getId(pokemon.url) }}</span>
+          <span class="pokemon-list__name">{{ pokemon.name }}</span>
+        </li>
+      }
+    </ul>
+
+    <div class="pokemon-list__pagination">
+      <button (click)="prevPage()" [disabled]="currentPage === 1">← Anterior</button>
+      <span>Página {{ currentPage }} de {{ totalPages }}</span>
+      <button (click)="nextPage()" [disabled]="currentPage === totalPages">Siguiente →</button>
+    </div>
+  }
+</section>

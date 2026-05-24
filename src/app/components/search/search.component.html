@@ -1,0 +1,25 @@
+<section class="search">
+  <h2 class="search__title">Búsqueda por nombre</h2>
+
+  <input
+    class="search__input"
+    type="text"
+    placeholder="Escribe un nombre..."
+    [(ngModel)]="query"
+    (input)="search()"
+  />
+
+  @if (results.length > 0) {
+    <ul class="search__results">
+      @for (pokemon of results; track pokemon.url) {
+        <li class="search__item" (click)="goToDetail(pokemon.url)">
+          <img [src]="getSprite(pokemon.url)" [alt]="pokemon.name" />
+          <span class="search__name">{{ pokemon.name }}</span>
+          <span class="search__id">#{{ getId(pokemon.url) }}</span>
+        </li>
+      }
+    </ul>
+  } @else if (query.length > 0) {
+    <p class="search__empty">No se encontraron resultados.</p>
+  }
+</section>

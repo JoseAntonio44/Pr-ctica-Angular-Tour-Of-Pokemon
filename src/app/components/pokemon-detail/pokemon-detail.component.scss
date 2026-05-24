@@ -1,0 +1,126 @@
+.pokemon-detail {
+  &__loading {
+    text-align: center;
+    color: #9ca3af;
+    margin-top: 3rem;
+  }
+
+  &__back {
+    background: none;
+    border: none;
+    color: #c0392b;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 1.25rem;
+    display: block;
+
+    &:hover { text-decoration: underline; }
+  }
+
+  &__card {
+    display: flex;
+    gap: 2rem;
+    background: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    align-items: flex-start;
+
+    @media (max-width: 600px) { flex-direction: column; align-items: center; }
+  }
+
+  &__img {
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    p {
+      font-size: 0.9rem;
+      color: #6b7280;
+
+      strong { color: #374151; }
+    }
+  }
+
+  &__name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    color: #111827;
+    margin-bottom: 0.5rem;
+  }
+
+  &__types {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+    flex-wrap: wrap;
+  }
+
+  &__stats {
+    background: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+
+    h3 {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9ca3af;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.type-badge {
+  background-color: #c0392b;
+  color: white;
+  font-size: 0.78rem;
+  padding: 0.2rem 0.75rem;
+  border-radius: 9999px;
+  text-transform: capitalize;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.85rem;
+
+  &__name {
+    font-size: 0.8rem;
+    color: #c0392b;
+    text-transform: capitalize;
+    width: 6rem;
+  }
+
+  &__bar {
+    flex: 1;
+    background: #f3f4f6;
+    border-radius: 9999px;
+    height: 8px;
+  }
+
+  &__fill {
+    background: #c0392b;
+    height: 8px;
+    border-radius: 9999px;
+  }
+
+  &__value {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #374151;
+    width: 2rem;
+    text-align: right;
+  }
+}
